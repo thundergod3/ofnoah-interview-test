@@ -54,31 +54,33 @@ const Blogs = () => {
   }, []);
 
   return (
-    <Box className={styles.container}>
-      {loading ? (
-        <Spinner size="xl" />
-      ) : (
-        <Container
-          display="flex"
-          flexDirection="column"
-          alignItems="center"
-          maxW="80vw">
-          <Box
-            maxW="7xl"
-            mx="auto"
-            px={{ base: "4", md: "8", lg: "12" }}
-            py={{ base: "6", md: "8", lg: "12" }}>
-            <BlogList>
-              {blogList.map((blog) => (
-                <Fragment key={blog.id}>
-                  <BlogItem blog={blog} />
-                </Fragment>
-              ))}
-            </BlogList>
-          </Box>
-        </Container>
-      )}
-    </Box>
+    checkAuthentication !== null && (
+      <Box className={styles.container}>
+        {loading ? (
+          <Spinner size="xl" />
+        ) : (
+          <Container
+            display="flex"
+            flexDirection="column"
+            alignItems="center"
+            maxW="80vw">
+            <Box
+              maxW="7xl"
+              mx="auto"
+              px={{ base: "4", md: "8", lg: "12" }}
+              py={{ base: "6", md: "8", lg: "12" }}>
+              <BlogList>
+                {blogList.map((blog) => (
+                  <Fragment key={blog.id}>
+                    <BlogItem blog={blog} />
+                  </Fragment>
+                ))}
+              </BlogList>
+            </Box>
+          </Container>
+        )}
+      </Box>
+    )
   );
 };
 

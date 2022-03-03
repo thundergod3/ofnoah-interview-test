@@ -28,17 +28,19 @@ const Home = () => {
   }, [checkAuthentication]);
 
   return (
-    <Box className={styles.container}>
-      <Head>
-        <title>Coding Test</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    checkAuthentication !== null && (
+      <Box className={styles.container}>
+        <Head>
+          <title>Coding Test</title>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
 
-      <Container display="flex" flexDirection="column" alignItems="center">
-        <DynamicText ref={childCompRef} />
-        <Input onChange={onChange} />
-      </Container>
-    </Box>
+        <Container display="flex" flexDirection="column" alignItems="center">
+          <DynamicText ref={childCompRef} />
+          <Input onChange={onChange} />
+        </Container>
+      </Box>
+    )
   );
 };
 
