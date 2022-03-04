@@ -52,7 +52,10 @@ const BlogItem = (props: Props) => {
           fallback={<Skeleton />}
           borderRadius={useBreakpointValue({ base: "md", md: "xl" })}
           width="210px"
-          height="210px"
+          height={{
+            base: "110px",
+            md: "210px",
+          }}
         />
         <Stack>
           <Stack spacing="1">
